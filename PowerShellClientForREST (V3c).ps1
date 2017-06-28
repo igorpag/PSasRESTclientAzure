@@ -331,13 +331,13 @@ While ($response3.StatusCode -ne 200)
  }
 
 # Search for the "ProvisioningState" attribute in the text blob: #
-if (!($response3.Content.Contains('"provisioningState":"Succeeded"') -ne -1))
+if (($response3.Content.Contains('"provisioningState":"Succeeded"')))
     { Write-Host '["provisioningState":"Succeeded"] found in the Response Content payload....' -ForegroundColor Green }
 
-if (!($response3.Content.Contains('"provisioningState":"Failed"') -ne -1))
+if (($response3.Content.Contains('"provisioningState":"Failed"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Red }
 
-if (!($response3.Content.Contains('"provisioningState":"Canceled"') -ne -1))
+if (($response3.Content.Contains('"provisioningState":"Canceled"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Yellow }
 
 #endregion 
@@ -441,14 +441,13 @@ if ($response2.StatusCode -ne 200)
     Write-Host ("...Response Code = " + $response3.StatusCode + " ...Content Length " + $response3.RawContentLength)
   }
 
-  # Search for the "ProvisioningState" attribute in the text blob: #
-  if (!($response3.Content.Contains('"provisioningState":"Succeeded"') -ne -1))
+ # Search for the "ProvisioningState" attribute in the text blob: #
+  if (($response3.Content.Contains('"provisioningState":"Succeeded"')))
     { Write-Host '["provisioningState":"Succeeded"] found in the Response Content payload....' -ForegroundColor Green }
-  if (!($response3.Content.Contains('"provisioningState":"Failed"') -ne -1))
+  if (($response3.Content.Contains('"provisioningState":"Failed"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Red }
-  if (!($response3.Content.Contains('"provisioningState":"Canceled"') -ne -1))
+  if (($response3.Content.Contains('"provisioningState":"Canceled"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Yellow }
-
 } else { Write-Host "SYNC Operation, then no long running status check for completion...." -ForegroundColor Green }
 
 #endregion 
@@ -553,11 +552,11 @@ While ($response3.StatusCode -ne 200)
  }
  Write-Host ("Exited Loop -> " +  $response3.StatusCode + "....") -ForegroundColor Green
    # Search for the "ProvisioningState" attribute in the text blob: #
-  if (!($response3.Content.Contains('"provisioningState":"Succeeded"') -ne -1))
+  if (($response3.Content.Contains('"provisioningState":"Succeeded"')))
     { Write-Host '["provisioningState":"Succeeded"] found in the Response Content payload....' -ForegroundColor Green }
-  if (!($response3.Content.Contains('"provisioningState":"Failed"') -ne -1))
+  if (($response3.Content.Contains('"provisioningState":"Failed"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Red }
-  if (!($response3.Content.Contains('"provisioningState":"Canceled"') -ne -1))
+  if (($response3.Content.Contains('"provisioningState":"Canceled"')))
     { Write-Host '["provisioningState":"Failed"] found in the Response Content payload....' -ForegroundColor Yellow }
 
 } else { Write-Host "SYNC Operation, then no long running status check for completion...." -ForegroundColor Green }
